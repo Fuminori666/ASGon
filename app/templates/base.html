@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        {% if title %}
+        <title>{{ title }} - ASGon</title>
+        {% else %}
+        <title>Welcome to ASGon</title>
+        {% endif %}
+    </head>
+    <body>
+        <div>ASGon:
+            <a href="/index">Home</a>
+            <a href="/login">Login</a>
+        </div>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>
