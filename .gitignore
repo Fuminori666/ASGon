@@ -173,3 +173,4 @@ venv.bak/
 
 .gitignore
 .idea/workspace.xml
+/ASGonEnv/
