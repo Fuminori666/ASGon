@@ -30,9 +30,31 @@ a:link, a:visited, .menubutton{
     text-decoration: none;
 }
 
-.menubutton:hover{
+.menubutton:hover, .post:hover{
     background-color:rgb(54, 169, 224);
     transition-property: background-color;
     transition-duration: 0.35s;
     transition-timing-function: ease-in, ease-in;
+}
+
+.content{
+    width:100%;
+}
+
+.post{
+    border-color:rgb(54, 169, 224);
+    border-style: solid;
+    border-width:thin;
+    padding: 8px;
+    margin: 10px;
+    text-align: center;
+    display: inline-block;
+}
+
+.imgpost{
+    width: 500px;
+    margin-right: 100%;
+    border-color: rgb(54, 169, 224);
+    border-style: solid;
+    border-width: thin;
 }
