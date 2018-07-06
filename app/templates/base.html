@@ -18,15 +18,16 @@
         {% endif %}
         {% endwith %}
         <div class="logo">
-            
+
         </div>
         <div class="menu">
             <a class="menubutton" href="{{ url_for('index') }}">Home</a>
             <a class="menubutton" href="{{ url_for('login') }}">Login</a>
-            <a class="menubutton" href="{{ url_for('index') }}">Home</a>
-            <a class="menubutton" href="{{ url_for('index') }}">Home</a>
-            <a class="menubutton" href="{{ url_for('index') }}">Home</a>
-            <a class="menubutton" href="{{ url_for('index') }}">Home</a>
+            <a class="menubutton" href="{{ url_for('notfound') }}">Sing Up</a>
+            <a class="menubutton" href="{{ url_for('notfound') }}">Price List</a>
+            <a class="menubutton" href="{{ url_for('notfound') }}">About Us</a>
+            <a class="menubutton" href="{{ url_for('notfound') }}">Contacts</a>
+            <a class="menubutton" href="{{ url_for('notfound') }}">Grounds</a>
         </div>
         {% block content %}{% endblock %}
 
