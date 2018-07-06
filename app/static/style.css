@@ -1,5 +1,6 @@
 body {
-    background-color: lightblue;
+    background-color: rgb(13, 13, 13);
+    background-image: url(/static/img/bg.jpg)
 }
 
 h1 {
@@ -8,6 +9,30 @@ h1 {
 }
 
 p {
+    color: white;
     font-family: verdana;
     font-size: 20px;
+}
+
+.menu{
+    color: white;
+    text-align: center;
+    font-size:80px;
+}
+
+a:link, a:visited, .menubutton{
+    color: white;
+    border-color:rgb(54, 169, 224);
+    border-style:solid;
+    border-width: thin;
+    padding: 8px;
+    text-align:center;
+    text-decoration: none;
+}
+
+.menubutton:hover{
+    background-color:rgb(54, 169, 224);
+    transition-property: background-color;
+    transition-duration: 0.35s;
+    transition-timing-function: ease-in, ease-in;
 }

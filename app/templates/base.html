@@ -8,11 +8,6 @@
         {% endif %}
     </head>
     <body>
-        <div>ASGon:
-            <a href="{{ url_for('index') }}">Home</a>
-            <a href="{{ url_for('login') }}">Login</a>
-        </div>
-        <hr>
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         <ul>
@@ -22,6 +17,18 @@
         </ul>
         {% endif %}
         {% endwith %}
+        <div class="logo">
+            
+        </div>
+        <div class="menu">
+            <a class="menubutton" href="{{ url_for('index') }}">Home</a>
+            <a class="menubutton" href="{{ url_for('login') }}">Login</a>
+            <a class="menubutton" href="{{ url_for('index') }}">Home</a>
+            <a class="menubutton" href="{{ url_for('index') }}">Home</a>
+            <a class="menubutton" href="{{ url_for('index') }}">Home</a>
+            <a class="menubutton" href="{{ url_for('index') }}">Home</a>
+        </div>
         {% block content %}{% endblock %}
+
     </body>
 </html>
