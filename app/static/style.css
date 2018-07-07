@@ -1,7 +1,9 @@
 body {
     background-color: rgb(13, 13, 13);
-    background-image: url(/static/img/bg.jpg)
+    background-image: url(/static/img/bg.jpg);
+    text-align: center;
 }
+
 
 h1 {
     color: white;
@@ -38,7 +40,10 @@ a:link, a:visited, .menubutton{
 }
 
 .content{
-    width:100%;
+    display: table;
+    margin-right: auto;
+    margin-left: auto;
+    width:80%;
 }
 
 .post{
