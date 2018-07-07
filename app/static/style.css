@@ -22,7 +22,7 @@ p {
     font-size:30px;
 }
 
-a:link, a:visited, .menubutton{
+menubutton:link, menubutton:visited, .menubutton{
     color: white;
     border-color:rgb(54, 169, 224);
     border-style:solid;
@@ -54,6 +54,12 @@ a:link, a:visited, .menubutton{
     margin: 10px;
     text-align: center;
     display: inline-block;
+}
+
+.postlink
+{
+    text-decoration: none;
+    color: white;
 }
 
 .imgpost{

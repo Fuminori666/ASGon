@@ -5,7 +5,7 @@
     <div class="content">
         {% for post in posts %}
         <div class="post">
-           <div><img class="imgpost" src="/static/img/gun1.png"/></div><p> {{ post.author.username }} says: <b>{{ post.body }}</b></p>
+           <div><img class="imgpost" src="/static/img/gun1.png"/></div><a href="#" class="postlink"><p> {{ post.author.username }} says: <b>{{ post.body }}</b></p></a>
         </div>
         {% endfor %}
     </div>
