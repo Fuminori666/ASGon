@@ -46,3 +46,14 @@ def login():
 @app.route('/notfound')
 def notfound():
     return render_template('notfound.html')
+
+
+@app.route('/post')
+def post():
+    posts = [
+        {
+            'author': {'username': 'Autor1'},
+            'PostBody': 'Post Post Post',
+        },
+    ]
+    return render_template('post.html', title='Post', posts=posts)
