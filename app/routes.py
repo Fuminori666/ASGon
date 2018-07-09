@@ -1,6 +1,16 @@
+"""
+Core file navigates all path o site
+"""
+
+
 from app import app
 from flask import render_template, flash, redirect, url_for
 from app.forms import LoginForm
+
+
+"""
+Index page of site
+"""
 
 
 @app.route('/')
@@ -33,6 +43,11 @@ def index():
     return render_template('index.html', title='Home', user=user, posts=posts)
 
 
+"""
+Login page
+"""
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
@@ -43,9 +58,19 @@ def login():
     return render_template('login.html', title='Sign In', form=form)
 
 
+"""
+Not found page
+"""
+
+
 @app.route('/notfound')
 def notfound():
     return render_template('notfound.html')
+
+
+"""
+Post page
+"""
 
 
 @app.route('/post')
