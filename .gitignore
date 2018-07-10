@@ -4,6 +4,6 @@
 __pycache__/
 .git/
 startASGon.sh
-/doc/
+/doc/build
 /migrations
 app.db
