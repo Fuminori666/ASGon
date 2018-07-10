@@ -1,8 +1,8 @@
 Routes
 ******
-.. automodule:: app.routes.module
+.. automodule:: app.routes
 
    Functions
    ---------
-   
+
    .. autofunction:: index

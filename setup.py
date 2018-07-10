@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name="ASGon",
@@ -6,5 +6,6 @@ setup(
     author="Anton Chebanov",
     author_email="anton.chebanov01@gmail.com",
     description=("Project for ASGon airsoft club "),
-    packages=['Flask', 'FlaskForm']
+    packages=find_packages(),
+    install_requires=['Flask', 'flask_wtf', 'flask_sqlalchemy', 'flask_migrate']
 )
