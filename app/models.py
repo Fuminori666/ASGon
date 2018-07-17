@@ -25,7 +25,8 @@ class User(db.Model):
         self.salt = array[1]
 
     def check_password(self, password):
-        return check_password_hash(self.password_hash, password)
+        result_hash = 'sha512'+'$'+self.salt+'$'+self.password_hash
+        return check_password_hash(result_hash, password)
 
 
 class Post(db.Model):
