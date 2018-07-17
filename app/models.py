@@ -19,7 +19,10 @@ class User(db.Model):
         return '<User {}>'.format(self.username)
 
     def set_password(self, password):
-        self.password_hash = generate_password_hash(password, 'sha512')
+        user_hash = generate_password_hash(password, 'sha512')
+        array = user_hash.split('$')
+        self.password_hash = array[2]
+        self.salt = array[1]
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
