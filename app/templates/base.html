@@ -26,7 +26,11 @@ This template is extends with another templates
         </div>
         <div class="menu">
             <a class="menubutton" href="{{ url_for('index') }}">Home</a>
+             {% if current_user.is_anonymous %}
             <a class="menubutton" href="{{ url_for('login') }}">Login</a>
+            {% else %}
+            <a class="menubutton" href="{{ url_for('logout') }}">Logout</a>
+            {% endif %}
             <a class="menubutton" href="{{ url_for('notfound') }}">Sing Up</a>
             <a class="menubutton" href="{{ url_for('notfound') }}">Price List</a>
             <a class="menubutton" href="{{ url_for('notfound') }}">About Us</a>
