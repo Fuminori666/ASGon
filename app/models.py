@@ -13,8 +13,6 @@ class User(UserMixin, db.Model):
     email = db.Column(db.Text, index=True, unique=True)
     password_hash = db.Column(db.Text)
     salt = db.Column(db.Text)
-    posts = db.relationship("Post", backref='author', lazy='dynamic')
-    playerlist = db.relationship("PlayersList", uselist=False, back_populates="User")
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
@@ -34,6 +32,7 @@ class User(UserMixin, db.Model):
 def load_user(id):
     return User.query.get(int(id))
 
+
 class Post(db.Model):
     __tablename__ = 'post'
     id = db.Column(db.Integer, primary_key=True)
@@ -50,9 +49,6 @@ class PlayersList(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     id_game = db.Column(db.Integer, db.ForeignKey('games.id'))
     id_player = db.Column(db.Integer, db.ForeignKey('user.id'))
-    players = db.relationship("User", back_populates="PlayersList")
-    games = db.relationship("Games")
-    orderedgames = db.relationship("OrderedGames")
 
     def __repr__(self):
         return '<PlayersList {}>'.format(self.id_game + ' ' + self.id_player)
@@ -62,8 +58,6 @@ class Schedule(db.Model):
     __tablename__ = 'schedule'
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    games = db.relationship("Games")
-    orderedgames = db.relationship("OrderedGames")
 
     def __repr__(self):
         return '<Schedule {}>'.format(self.date)
@@ -82,7 +76,6 @@ class OrderedGames(db.Model):
     __tablename__ = 'orderedgames'
     id = db.Column(db.Integer, primary_key=True)
     id_date = db.Column(db.Integer, db.ForeignKey('schedule.id'))
-    service = db.relationship("ServiceList")
 
     def __repr__(self):
         return '<OrderedGame {}>'.format(self.id_date)
@@ -93,7 +86,6 @@ class ServiceList(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     id_game = db.Column(db.Integer, db.ForeignKey('orderedgames.id'))
     id_service = db.Column(db.Integer, db.ForeignKey('service.id'))
-    service = db.relationship("Service", back_populates="ServiceList")
 
     def __repr__(self):
         return '<ServiceList {}>'.format(self.id_game + ' ' + self.id_service)
@@ -104,7 +96,6 @@ class Service(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     service_name = db.Column(db.Text)
     price = db.Column(db.Text)
-    servises = db.relationship("ServiceList", uselist=False, back_populates="Service")
 
     def __repr__(self):
         return '<Service {}>'.format(self.service_name + ' ' + self.price)
