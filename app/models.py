@@ -18,7 +18,7 @@ class User(UserMixin, db.Model):
         return '<User {}>'.format(self.username)
 
     def set_password(self, password):
-        user_hash = generate_password_hash(password, 'sha512')
+        user_hash = generate_password_hash(password, 'sha512', salt_length=8)
         array = user_hash.split('$')
         self.password_hash = array[2]
         self.salt = array[1]
