@@ -5,9 +5,8 @@ Core file navigates all path o site
 
 from app import app
 from flask import request, render_template, flash, redirect, url_for
-from flask_login import logout_user
+from flask_login import logout_user, login_user, logout_user, current_user, login_required
 from app.forms import LoginForm
-from flask_login import current_user, login_user
 from app.models import User
 from app import db
 from app.forms import RegistrationForm
@@ -97,6 +96,11 @@ def post(post_id):
     return render_template('post.html', title='Post', posts=posts)
 
 
+"""
+Register page function
+"""
+
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
@@ -110,4 +114,15 @@ def register():
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
+
+
+@app.route('/user/<username>')
+@login_required
+def user(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    posts = [
+        {'author': user, 'body': 'Test post #1'},
+        {'author': user, 'body': 'Test post #2'}
+    ]
+    return render_template('user.html', user=user, posts=posts)
 
